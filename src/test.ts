@@ -1,5 +1,5 @@
-const test = require("tape");
-const isValid = require(".");
+import test from "tape";
+import isValid from "./index";
 
 test("should bat case the text", t => {
   t.ok(isValid("N7 7AJ"), "N7 7AJ is a valid postcode");
