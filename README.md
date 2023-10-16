@@ -1,4 +1,4 @@
-# uk-postcode-validator [![npm][npm-image]][npm-url] [![size][size-image]][size-url] [![Build Status][travis-image]][travis-url]
+# uk-postcode-validator [![npm][npm-image]][npm-url] [![size][size-image]][size-url]
 
 > Validate UK postcodes.
 
@@ -69,5 +69,3 @@ This [stack overflow discussion](https://stackoverflow.com/questions/164979/uk-p
 [npm-url]: https://npmjs.com/package/uk-postcode-validator
 [size-image]: https://img.shields.io/bundlephobia/min/uk-postcode-validator.svg?style=flat
 [size-url]: https://bundlephobia.com/result?p=uk-postcode-validator
-[travis-image]: https://travis-ci.org/sirLisko/uk-postcode-validator.svg?branch=master
-[travis-url]: https://travis-ci.org/sirLisko/uk-postcode-validator
