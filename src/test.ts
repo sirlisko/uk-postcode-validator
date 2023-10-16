@@ -1,7 +1,7 @@
 import test from "tape";
 import isValid from "./index";
 
-test("should bat case the text", t => {
+test("should bat case the text", (t) => {
   t.ok(isValid("N7 7AJ"), "N7 7AJ is a valid postcode");
   t.ok(isValid("N77AJ"), "N77AJ is a valid postcode");
   t.ok(isValid("n7 7aj"), "n7 7aj is a valid postcode");

@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-$ npm install uk-postcode-validator
+npm install uk-postcode-validator
 ```
 
 ## Example
