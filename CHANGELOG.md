@@ -4,4 +4,4 @@
 
 ### Patch Changes
 
-- b300e86: Updated the documentation
+- b300e86: Updated the documentation.
