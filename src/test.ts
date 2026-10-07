@@ -1,5 +1,5 @@
 import test from "tape";
-import isValid from "./index";
+import defaultExport, { isValid } from "./index";
 
 test("should validate", (t) => {
   t.ok(isValid("N7 7AJ"), "N7 7AJ has valid postcode");
@@ -51,5 +51,10 @@ test("should reject letters not allowed in each position", (t) => {
     isValid("N7 7CA"),
     "C, I, K, M, O and V are not used in the inward code",
   );
+  t.end();
+});
+
+test("should keep the default export", (t) => {
+  t.equal(defaultExport, isValid);
   t.end();
 });
