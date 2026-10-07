@@ -11,8 +11,8 @@ npm install uk-postcode-validator
 ## Example
 
 ```js
-import isValid from "uk-postcode-validator";
-// or const isValid = require("uk-postcode-validator").default;
+import { isValid } from "uk-postcode-validator";
+// or const { isValid } = require("uk-postcode-validator");
 
 isValid("N7 7AJ");
 //=> true

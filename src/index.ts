@@ -12,7 +12,7 @@ const POSTCODE_VALIDATION_REGEX = new RegExp(
  * `uk-postcode-validator` validate UK postcodes.
  * @param {string} postcode The postcode that needs to be validated
  */
-const validator = (postcode: string): boolean =>
+export const isValid = (postcode: string): boolean =>
   POSTCODE_VALIDATION_REGEX.test(postcode.trim());
 
-export default validator;
+export default isValid;
