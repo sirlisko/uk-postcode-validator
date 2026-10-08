@@ -1,46 +1,44 @@
-# uk-postcode-validator [![npm][npm-image]][npm-url] [![size][size-image]][size-url]
+# uk-postcode-validator
 
-> Validate UK postcodes.
+[![npm][npm-image]][npm-url] [![license][license-image]](https://github.com/sirlisko/uk-postcode-validator/blob/main/LICENSE)
 
-## Installation
+Check whether a string is a correctly formatted UK postcode.
+
+- **Checks every position.** Each position only accepts the letters used in real postcodes, so `Q1 1AA` or `N7 7CA` are rejected.
+- **Forgiving with input.** Case-insensitive, with or without the space, and surrounding whitespace is ignored.
+- **Tiny.** One function, no dependencies.
+- **Typed.** TypeScript declarations included.
+
+## Install
 
 ```bash
 npm install uk-postcode-validator
 ```
 
-## Example
+## Usage
 
 ```js
 import { isValid } from "uk-postcode-validator";
 // or const { isValid } = require("uk-postcode-validator");
 
-isValid("N7 7AJ");
-//=> true
+isValid("N7 7AJ"); // true
+isValid("n77aj"); // true
+isValid(" EC1A 1BB "); // true
+isValid("GIR 0AA"); // true
 
-isValid("N77AJ");
-//=> true
-
-isValid("GIR 0AA");
-//=> true
-
-isValid("N7 A7J");
-//=> false
-
-isValid("90210");
-//=> false
+isValid("N7 A7J"); // false
+isValid("Q1 1AA"); // false
+isValid("90210"); // false
 ```
 
 ## API
 
-### isValid(input)
+| Import                               | Value                                                     |
+| ------------------------------------ | --------------------------------------------------------- |
+| `isValid(postcode: string): boolean` | `true` if `postcode` is a correctly formatted UK postcode |
+| `default`                            | The same `isValid` function                               |
 
-Returns the `true` or `false` based on the postcode validity.
-
-#### input
-
-Type: `string`
-
-## Logic
+## Validation rules
 
 A postcode is an outward code followed by an inward code, optionally separated by whitespace. `GIR 0AA` is also accepted.
 
@@ -55,13 +53,31 @@ Inward code:           9AA
 Inward code:   letters except C, I, K, M, O, V
 ```
 
-Matching is case-insensitive and leading or trailing whitespace is ignored.
+It checks the format only, not whether the postcode exists. For that, look it up against a dataset such as the [ONS Postcode Directory](https://geoportal.statistics.gov.uk/search?q=ONSPD).
 
-## Inspired by
+**Not included:** BFPO addresses, overseas territories (e.g. `ASCN 1ZZ`, `KY1-1001`) and pseudo-postcodes such as `ZZ99 9ZZ`.
 
-This [stack overflow discussion](https://stackoverflow.com/questions/164979/uk-postcode-regex-comprehensive) and this [gov.uk document](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/488478/Bulk_Data_Transfer_-_additional_validation_valid_from_12_November_2015.pdf).
+## Migrating from 1.x
+
+- Validation is stricter. Text around a postcode (`"GIR0AA nonsense"`) and letters not used in a given position (`"Q1 1AA"`, `"ZZ99 9ZZ"`) are now rejected.
+- With `require`, use the named export: `const { isValid } = require("uk-postcode-validator")` instead of `.default`. The default export still works.
+- The build targets ES2017, so very old browsers need it transpiled.
+
+## Contributing
+
+```bash
+pnpm install
+pnpm test
+```
+
+## Credits
+
+Validation rules from BS 7666, as summarised in [Postcodes in the United Kingdom](https://en.wikipedia.org/wiki/Postcodes_in_the_United_Kingdom#Validation) on Wikipedia.
+
+## License
+
+[MIT](https://github.com/sirlisko/uk-postcode-validator/blob/main/LICENSE) © Luca Lischetti
 
 [npm-image]: https://img.shields.io/npm/v/uk-postcode-validator.svg
 [npm-url]: https://npmjs.com/package/uk-postcode-validator
-[size-image]: https://img.shields.io/bundlephobia/min/uk-postcode-validator.svg?style=flat
-[size-url]: https://bundlephobia.com/result?p=uk-postcode-validator
+[license-image]: https://img.shields.io/npm/l/uk-postcode-validator.svg
