@@ -11,8 +11,7 @@
     "build": "tsc",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,scss,css,md}\"",
     "lint": "eslint . --ext .ts",
-    "prepublish": "pnpm build",
-    "release": "pnpm build && changeset publish",
+    "prepublishOnly": "pnpm build",
     "test": "ts-node src/test",
     "typecheck": "tsc"
   },
@@ -38,7 +37,6 @@
   },
   "homepage": "https://github.com/sirLisko/uk-postcode-validator#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
     "@types/tape": "^5.6.1",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
@@ -52,5 +50,6 @@
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "packageManager": "pnpm@12.6.0"
 }

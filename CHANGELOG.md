@@ -1,5 +1,7 @@
 # uk-postcode-validator
 
+From 2.0.0 onwards, release notes are on [GitHub Releases](https://github.com/sirLisko/uk-postcode-validator/releases).
+
 ## 1.1.3
 
 ### Patch Changes
