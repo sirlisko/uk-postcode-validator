@@ -42,24 +42,20 @@ Type: `string`
 
 ## Logic
 
+A postcode is an outward code followed by an inward code, optionally separated by whitespace. `GIR 0AA` is also accepted.
+
 ```text
-    "GIR 0AA"
-OR
-    One letter followed by either one or two numbers
-OR
-    One letter followed by a second letter that must be one of ABCDEFGHJKLMNOPQRSTUVWXY (i.e..not I) and then followed by either one or two numbers
-OR
-    One letter followed by one number and then another letter
-OR
-    A two part post code where the first part must be One letter followed by a second letter that must be one of ABCDEFGHJKLMNOPQRSTUVWXY (i.e..not I) and then followed by one number and optionally a further letter after that
-    AND
-    The second part must be One number followed by two letters.
+Outward code, one of:  A9  A99  AA9  AA99  A9A  AA9A
+Inward code:           9AA
+
+1st position:  any letter except Q, V, X
+2nd position:  any letter except I, J, Z
+3rd position:  (A9A) only A, B, C, D, E, F, G, H, J, K, P, S, T, U, W
+4th position:  (AA9A) only A, B, E, H, M, N, P, R, V, W, X, Y
+Inward code:   letters except C, I, K, M, O, V
 ```
 
-A combination of upper and lower case characters is allowed.
-
-The length is determined by the regular expression and is between 2 and 8
-characters.
+Matching is case-insensitive and leading or trailing whitespace is ignored.
 
 ## Inspired by
 
